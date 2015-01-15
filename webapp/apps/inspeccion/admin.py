@@ -1,6 +1,8 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 
-from django.contrib.gis import admin
+# from django.contrib.gis import admin
+from django.contrib import admin
+
 from django.contrib.admin import SimpleListFilter
 
 from forms import RequiredInlineFormSet
@@ -21,16 +23,16 @@ from models import Observacion
 from models import Esquema_Planta
 from models import Esquema_Elevacion
 from models import Anexo
-from models import Poligono
+# from models import Poligono
 
 from forms import EstructuraInlineForm
 
 
-class PoligonoAdmin(admin.GeoModelAdmin):
-    options = {
-        'default_lat':  10.50882052,
-        'default_lon': -66.89968507,
-    }
+# class PoligonoAdmin(admin.GeoModelAdmin):
+#     options = {
+#         'default_lat':  10.50882052,
+#         'default_lon': -66.89968507,
+#     }
 
 
 class Periodo_ConstruccionAdmin(admin.ModelAdmin):
@@ -104,7 +106,7 @@ class EstructuraInline(admin.StackedInline):
                 ('n_semi_sot', 'n_sotanos'),
                 ('ciudad', 'urb_barrio'),
                 ('sector', 'calle'),
-                ('pto_referencia', 'poligono'),
+                # ('pto_referencia', 'poligono'),
             )
         }),
     )
@@ -457,6 +459,6 @@ class InspeccionAdmin(admin.ModelAdmin):
     tipo_str_predom.short_description = "Tipo Estructural Predominante"
 
 
-admin.site.register(Poligono, PoligonoAdmin)
+# admin.site.register(Poligono, PoligonoAdmin)
 admin.site.register(Periodo_Construccion, Periodo_ConstruccionAdmin)
 admin.site.register(Inspeccion, InspeccionAdmin)

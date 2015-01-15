@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.views.generic.detail import DetailView
 
-from models import Periodo_Construccion, Poligono
+from models import Periodo_Construccion #, Poligono
 
 class Periodo_Construccion_By_YearView(JSONResponseMixin, AjaxResponseMixin, DetailView):
     model = Periodo_Construccion

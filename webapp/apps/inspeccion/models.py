@@ -1,50 +1,51 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 import os
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.contrib.gis.db import models
+from django.db import models
+# from django.contrib.gis.db import models
 
 #region  Modelo Poligono
 
-class Poligono(models.Model):
+# class Poligono(models.Model):
 
-    """
-        Clase para gestionar el modelo Geografico.
+#     """
+#         Clase para gestionar el modelo Geografico.
 
-        Los atributos de esta clase se generaron
-        a partir de la informacion suminitsrada por
-        Datasource, que no son mas que los atributos
-        que trae el shapefile por cada pligono.
+#         Los atributos de esta clase se generaron
+#         a partir de la informacion suminitsrada por
+#         Datasource, que no son mas que los atributos
+#         que trae el shapefile por cada pligono.
 
-        Esta clase de desarrollo para que pueda ser
-        usada en el modelo de Estructura como un
-        Foreing Key. Adicionalmente servira
-        para almacenar los poligonos suministrados
-        en el (los) shapefile(s).
+#         Esta clase de desarrollo para que pueda ser
+#         usada en el modelo de Estructura como un
+#         Foreing Key. Adicionalmente servira
+#         para almacenar los poligonos suministrados
+#         en el (los) shapefile(s).
 
-        Mas información:
-        https://docs.djangoproject.com/en/1.4/ref/contrib/gis/tutorial/
-        En la seccion : Importing Spatial Data
-    """
-    fid_edific = models.IntegerField()
-    layer = models.CharField(max_length=12)
-    gm_type = models.CharField(max_length=17)
-    elevation = models.FloatField()
-    xdata0 = models.IntegerField()
-    shape_leng = models.FloatField()
-    shape_area = models.FloatField()
-    otro_conta = models.CharField(max_length=250)
-    geom = models.PolygonField(srid=4326)
-    objects = models.GeoManager()
+#         Mas información:
+#         https://docs.djangoproject.com/en/1.4/ref/contrib/gis/tutorial/
+#         En la seccion : Importing Spatial Data
+#     """
+#     fid_edific = models.IntegerField()
+#     layer = models.CharField(max_length=12)
+#     gm_type = models.CharField(max_length=17)
+#     elevation = models.FloatField()
+#     xdata0 = models.IntegerField()
+#     shape_leng = models.FloatField()
+#     shape_area = models.FloatField()
+#     otro_conta = models.CharField(max_length=250)
+#     geom = models.PolygonField(srid=4326)
+#     objects = models.GeoManager()
 
-    class  Meta:
-        verbose_name = 'Poligono'
-        verbose_name_plural = 'Poligonos'
+#     class  Meta:
+#         verbose_name = 'Poligono'
+#         verbose_name_plural = 'Poligonos'
 
-    def __unicode__(self):
-        return u'Poligono %s ' % (self.id)
+#     def __unicode__(self):
+#         return u'Poligono %s ' % (self.id)
 
-#endregion
+# #endregion
 #region  Modelo Inspeccion
 class  Inspeccion(models.Model):
 
@@ -236,7 +237,7 @@ class Estructura(models.Model):
                              max_length=100,null= True, blank=True)
     pto_referencia = models.CharField(verbose_name="Punto de referencia",help_text="Punto de referencia",max_length=100,
                                       null= True, blank=True)
-    poligono = models.ForeignKey(Poligono, null=True,blank=True,default=None)
+    # poligono = models.ForeignKey(Poligono, null=True,blank=True,default=None)
 
     class  Meta:
         verbose_name = 'Estructura'
