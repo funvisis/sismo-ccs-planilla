@@ -196,11 +196,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.gis',
+    'django.contrib.gis',
     'django.contrib.flatpages',
     'braces',
     # Third Party Apps
-    'south',
+    # 'south',
 
     # Project Apps.
     'apps.usuario',
@@ -209,6 +209,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'floppyforms',
     )
 
 #============================================================

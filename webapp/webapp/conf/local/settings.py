@@ -6,20 +6,20 @@ import os
 DEBUG = True
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-#         'NAME': 'sismocaracas',
-#         'USER':'funvisis',
-#         'PASSWORD':'funvisis',
-#         'HOST':'localhost',
-#         }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'sismocaracas.sqlite3'
+        'NAME': 'sismocaracas.db',
+#         'USER':'funvisis',
+#         'PASSWORD':'funvisis',
+#         'HOST':'localhost',
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'NAME': 'geodjango.db',
     }
 }
 

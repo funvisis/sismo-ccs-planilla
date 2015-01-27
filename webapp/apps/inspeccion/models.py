@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.gis.db import models as geomodels
 # from django.contrib.gis.db import models
 
 #region  Modelo Poligono
@@ -46,6 +47,31 @@ from django.db import models
 #         return u'Poligono %s ' % (self.id)
 
 # #endregion
+
+class Edificacion(geomodels.Model):
+
+    """
+    Representa cada uno de las edificaciones inspeccionadas.
+    """
+
+    objectid = geomodels.IntegerField('Object ID')
+    layer = geomodels.CharField('Layer', max_length=32)
+    elevation = geomodels.FloatField('Elevation')
+    build_code = geomodels.IntegerField('Building Code')
+    bld_code1 = geomodels.CharField('Building Code 1', max_length=50)
+    bld_code2 = geomodels.CharField('Building Code 2', max_length=6)
+    shape_leng = geomodels.FloatField()
+    shape_area = geomodels.FloatField()
+    
+    mpoly = geomodels.MultiPolygonField()
+    objects = geomodels.GeoManager()
+
+    srid = 2202 # REGVEN_UTM_Zone_19N
+
+    def __unicode__(self):
+        return self.objectid
+
+
 #region  Modelo Inspeccion
 class  Inspeccion(models.Model):
 
